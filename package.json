@@ -4,10 +4,9 @@
   "description": "Backend of assignment student-book app for CQtechnologies",
   "main": "index.js",
   "scripts": {
-    "startNodemon": "nodemon index.js",
     "start": "node index.js",
-    "migration": "knex migrate:up --knexfile config/create-student-table.js",
-    "seed": "knex seed:run --knexfile  config/db-connection.js"
+    "migration": "knex migrate:latest",
+    "seed": "knex seed:run"
   },
   "author": "Junaid Basit",
   "license": "ISC",

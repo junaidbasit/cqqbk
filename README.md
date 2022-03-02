@@ -6,6 +6,14 @@ Developed with:
 3. Postgresql (https://www.npmjs.com/package/pg) database
 4. KnexJs (https://knexjs.org/) library for database query building in nodejs
 
+
+## Please follow the following steps to run this project
+
+1. npm install 
+2. npm run migration (This will create two tables in your database)
+3. npm run seed (This will add some smaple data to your tables)
+4. npm run start
+
 ## Folder structure
 1. index.js --app entry point 
 2. config => config/knex.js, knexFile.js : for the database connection
