@@ -73,18 +73,30 @@ const deleteBook = async (req, res) => {
 
 const studentBooks = async (req, res) => {
     try {
-            const booksdata = await bookService.studentBooks()
-            res.status(201).send({ booksdata });
-          } catch (err) {
-            res.send({ msg: err.message });
-          }
-}
+        const booksdata = await bookService.studentBooks()
+        res.status(HttpStatus.StatusCodes.OK).json({ booksdata });
+    } catch (err) {
+        res.status(HttpStatus.StatusCodes.INTERNAL_SERVER_ERROR).json({ message: err.message });
+    }
+};
+const studentBooksById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const book = await bookService.getStudentBooksById(id)
+        res.status(HttpStatus.StatusCodes.OK).json({ book });
+    } catch (err) {
+        res.status(HttpStatus.StatusCodes.INTERNAL_SERVER_ERROR).json({ message: err.message });
+    }
+};
+
+
 module.exports = {
     allBooks,
     deleteBook,
     updateBook,
     getBook,
     addBook,
-    studentBooks
+    studentBooks,
+    studentBooksById
 
 };

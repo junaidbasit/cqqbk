@@ -27,7 +27,7 @@ const deleteBookById = async (id) => {
         .del()
 };
 const studentBooks = async () => {
-    await dbConection
+    const data = await dbConection
         .select(
             "book.id",
             "book.book_name",
@@ -41,8 +41,25 @@ const studentBooks = async () => {
         .leftOuterJoin("student", function () {
             this.on("student.id", "=", "book.borrowed_by");
         });
+    return data;
 };
-
+const getStudentBooksById = async () => {
+    const book = await db
+        .select(
+            "book.id",
+            "book.book_name",
+            "book.author_name",
+            "student.first_name",
+            "student.last_name",
+            "book.date_borrowed",
+            "book.date_return"
+        )
+        .from("book").where("book.id", req.params.id)
+        .leftOuterJoin("student", function () {
+            this.on("student.id", "=", "book.borrowed_by");
+        });
+    return book;
+};
 
 module.exports = {
     getAllBooks,
@@ -50,7 +67,8 @@ module.exports = {
     getBookById,
     updateBookById,
     deleteBookById,
-    studentBooks
+    studentBooks,
+    getStudentBooksById
 }
 //     book_name: req.body.bookName,
 // author_name: req.body.authorName,
