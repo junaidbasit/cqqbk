@@ -1,4 +1,4 @@
-## CQapp-backend
+## app-backend
 Backend for a simple application in which you can show relation between books and students. A student can borrow many books from a library.
 Developed with:
 1. NodeJs (https://nodejs.org/en/)
@@ -7,7 +7,9 @@ Developed with:
 4. KnexJs (https://knexjs.org/) library for database query building in nodejs
 
 ## Folder structure
-1. bk -> index.js -- entry point 
-2. bk -> db -> db.js, knexFile.js : for the database connection
-3. bk -> db -> migrations, seeds : for creating tables and inserting initial table data
-4. bk -> routes -> studentRouter.js, bookRouter.js : for the routes performing all CRUD operations
+1. index.js --app entry point 
+2. config => config/knex.js, knexFile.js : for the database connection
+3. config => migrations, seeds : for creating tables and inserting initial table data
+4. routes => student.js, books.js : for the routes (endpoints)
+5. controller => books.js,student.js : for to seprate routes and functions.
+6. service => contain actual basic logic & perform all CRUD operations on db.

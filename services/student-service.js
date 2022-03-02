@@ -1,5 +1,5 @@
 
-const dbConection = require("../config/db-connection");
+const dbConection = require("../config/knex");
 
 const getAllStudents = async () => {
     const books = dbConection.select().table('student');
