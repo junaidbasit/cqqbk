@@ -16,7 +16,7 @@ Developed with:
 
 ## Folder structure
 1. index.js -- app entry point 
-2. config -> config/knex.js, knexFile.js : for the database connection
+2. config => config/knex.js, knexFile.js : for the database connection
 3. config => migrations, seeds : for creating tables and inserting initial table data
 4. routes => student.js, books.js : for the routes (endpoints)
 5. controller => books.js,student.js : for to seprate routes and functions.
